@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.go.it.planetapp.presentation.planetList.PlanetListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".presentation.planetList.PlanetListActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/activity_planet_list_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintLeft_toRightOf="@id/guideline5"
+            app:layout_constraintRight_toLeftOf="@id/guideline6"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.go.it.planetapp.presentation.customViews.GothicRegular
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/planet_list"
+                android:textColor="@color/red"
+                android:textSize="18sp" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/progressBarDark"
+            android:visibility="@{viewModel.progressVisible}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/guideline5"
+            app:layout_constraintRight_toLeftOf="@id/guideline6"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_planet_list_toolbar" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/activity_planet_list_recycler"
+            adapter="@{viewModel}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/guideline5"
+            app:layout_constraintRight_toLeftOf="@id/guideline6"
+            app:layout_constraintTop_toBottomOf="@id/activity_planet_list_toolbar" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.96" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

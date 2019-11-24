@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+   >
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.go.it.planetapp.presentation.planetDetails.PlanetDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_left"
+            android:onClick="@{()->viewModel.backClick()}"
+            app:layout_constraintBottom_toTopOf="@+id/guideline10"
+            app:layout_constraintLeft_toLeftOf="@id/guideline7"
+            app:layout_constraintTop_toTopOf="parent" />
+<ProgressBar
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintBottom_toTopOf="@+id/guideline12"
+    android:visibility="@{viewModel.progressVisible}"
+    app:layout_constraintTop_toTopOf="@id/guideline10"
+    />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:visibility="@{viewModel.containerVisible}"
+            app:layout_constraintBottom_toTopOf="@+id/guideline12"
+            app:layout_constraintLeft_toLeftOf="@id/guideline7"
+            app:layout_constraintTop_toTopOf="@id/guideline10">
+
+            <com.go.it.planetapp.presentation.customViews.GothicRegular
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.planet.name}"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/white"
+                android:layout_marginStart="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="20dp">
+
+                <com.go.it.planetapp.presentation.customViews.GothicLight
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rotation_period"
+                    android:textColor="@color/white" />
+
+                <com.go.it.planetapp.presentation.customViews.GothicRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.planet.rotation_period}"
+                    android:textColor="@color/light_grey" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp">
+
+                <com.go.it.planetapp.presentation.customViews.GothicLight
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/orbital_period"
+                    android:textColor="@color/white" />
+
+                <com.go.it.planetapp.presentation.customViews.GothicRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.planet.orbital_period}"
+                    android:textColor="@color/light_grey" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp">
+
+                <com.go.it.planetapp.presentation.customViews.GothicLight
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/diameter"
+                    android:textColor="@color/white" />
+
+                <com.go.it.planetapp.presentation.customViews.GothicRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.planet.diameter}"
+                    android:textColor="@color/light_grey" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp">
+
+                <com.go.it.planetapp.presentation.customViews.GothicLight
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/climate"
+                    android:textColor="@color/white" />
+
+                <com.go.it.planetapp.presentation.customViews.GothicRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.planet.climate}"
+                    android:textColor="@color/light_grey" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp">
+
+                <com.go.it.planetapp.presentation.customViews.GothicLight
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gravity"
+                    android:textColor="@color/white" />
+
+                <com.go.it.planetapp.presentation.customViews.GothicRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.planet.gravity}"
+                    android:textColor="@color/light_grey" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp">
+
+                <com.go.it.planetapp.presentation.customViews.GothicLight
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/terrain"
+                    android:textColor="@color/white" />
+
+                <com.go.it.planetapp.presentation.customViews.GothicRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.planet.terrain}"
+                    android:textColor="@color/light_grey" />
+            </LinearLayout>
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="10dp">
+
+            <com.go.it.planetapp.presentation.customViews.GothicLight
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/surface_water"
+                android:textColor="@color/white" />
+
+            <com.go.it.planetapp.presentation.customViews.GothicRegular
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.planet.surface_water}"
+                android:textColor="@color/light_grey" />
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp">
+
+                <com.go.it.planetapp.presentation.customViews.GothicLight
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/population"
+                    android:textColor="@color/white" />
+
+                <com.go.it.planetapp.presentation.customViews.GothicRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.planet.population}"
+                    android:textColor="@color/light_grey" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
